@@ -24,3 +24,8 @@ sed -i 's/0x7b0000/0x1fb0000/g' target/linux/ramips/dts/mt7620a_phicomm_psg1208.
 
 # 2. 扩容 Makefile 的体积上限
 sed -i '/define Device\/phicomm_psg1208/,/endef/ s/IMAGE_SIZE := .*/IMAGE_SIZE := 32448k/' target/linux/ramips/image/mt7620.mk
+
+# 3. 自动拉取校园网防检测三件套源码 (UA2F + rkp-ipid)
+git clone https://github.com/Zxilly/ua2f.git package/ua2f
+git clone https://github.com/EOYOHOO/luci-app-ua2f.git package/luci-app-ua2f
+git clone https://github.com/CHN-beta/rkp-ipid.git package/rkp-ipid
